@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+void main() => runApp(TrangChu());
+class TrangChu extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -88,6 +87,32 @@ class _ListViewKhoaHocState extends State<ListViewKhoaHoc> {
     return Container(
       child: Column(
         children: [
+          RawMaterialButton(
+            onPressed: () => _submit(),
+
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 8.0,
+                horizontal: 20.0,
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.camera,
+                    color: Colors.white,
+                  ),
+                  Text("Camera"),
+                ],
+              ),
+            ),
+            textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
+            fillColor: Colors.deepOrange,
+            padding: EdgeInsets.all(20.0),
+            splashColor: Colors.red,
+            // hiệu ứng button
+            shape: const StadiumBorder(),
+          ),
           Card(
             margin: EdgeInsets.all(15),
             color: Colors.black12,
@@ -116,4 +141,14 @@ class _ListViewKhoaHocState extends State<ListViewKhoaHoc> {
       ),
     );
   }
+}
+_submit() {
+  DatabaseReference database =
+  FirebaseDatabase.instance.reference().child("subjects");
+  database.push().set({
+    'sID': "_txtUID.text",
+    'sName': "_txtName.text",
+    'iCount': "_txtPhone.text",
+    'iPrice': 'hien tai chua co'
+  });
 }

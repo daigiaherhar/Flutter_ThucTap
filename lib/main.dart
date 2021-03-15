@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'Admin/TrangChu.dart';
 
 
 void main() => runApp(MyApp());
@@ -25,5 +25,5 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-// #enddocregion build
+
 }
