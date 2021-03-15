@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "608927146833",
+    "project_id": "flutter-thuctap2",
+    "storage_bucket": "flutter-thuctap2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608927146833:android:2a47b63af51fb38e772970",
+        "android_client_info": {
+          "package_name": "com.example.flutter_thuctap2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608927146833-ar6vnllkhkd3te1t2pq8j6i2n8cle0v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDePB_fM-09OFcai7iDWsgpQUPrwCLaWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608927146833-ar6vnllkhkd3te1t2pq8j6i2n8cle0v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
