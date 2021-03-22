@@ -1,4 +1,4 @@
-class Subject {
+class Subjects {
   String _sId;
   String _sName;
   int _iCount;
@@ -14,7 +14,7 @@ class Subject {
 
   double get dPrice => _dPrice;
 
-  Subject(this._sId, this._sName, this._iCount, this._dPrice);
+  Subjects(this._sId, this._sName, this._iCount, this._dPrice);
 
   set dPrice(double value) {
     _dPrice = value;

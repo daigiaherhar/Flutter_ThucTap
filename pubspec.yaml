@@ -32,6 +32,10 @@ dependencies:
   firebase_auth: ^1.0.1
   firebase_database: ^6.1.0
   firebase_storage: ^8.0.0
+  image_picker: ^0.7.3
+  carousel_slider: ^3.0.0
+  video_player: ^2.0.2
+  chewie: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -49,9 +53,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+#   assets:
+#     - videos/genshinImpact.mp4
+#     - images/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

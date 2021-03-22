@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'Admin/TrangChu.dart';
+import 'Admin/HomePage.dart';
 
 
-void main() => runApp(MyApp());
+void main() => runApp(HomePage());
 
 class MyApp extends StatelessWidget {
   // #docregion build
