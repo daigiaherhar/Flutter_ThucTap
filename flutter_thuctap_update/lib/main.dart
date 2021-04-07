@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_project_moi_hoc/Model/Subjects.dart';
+
+import 'package:flutter_thuctap_update/Model/Subjects.dart';
 
 import 'View/ButtonIcon.dart';
 import 'HomePage_TabView_Movie.dart';
 import 'HomePage_TabView_Admin.dart';
+import 'HomePage_TabView_Info.dart';
 void main() => runApp(HomePage());
 
 class HomePage extends StatelessWidget {
@@ -23,7 +25,7 @@ class HomePage extends StatelessWidget {
           length: 2,
           child: Scaffold(
             appBar: AppBar(
-              title: const Text('Admin'),
+              title: const Text('EtQa xem phim tẹt ga'),
               // actions: [
               //   IconButton(
               //     icon: Icon(Icons.send),
@@ -43,7 +45,7 @@ class HomePage extends StatelessWidget {
                     color: Colors.deepOrange),
                 tabs: <Widget>[
                   Tab(
-                    icon: Icon(Icons.headset_mic),
+                    icon: Icon(Icons.movie_creation),
                   ),
                   Tab(
                     icon: Icon(Icons.engineering),
@@ -54,7 +56,7 @@ class HomePage extends StatelessWidget {
             body: TabBarView(
               children: <Widget>[
                 HomePage_TabView_1(),
-                AddMovie(),
+                HomePage_Info(),
               ],
             ),
           )),
