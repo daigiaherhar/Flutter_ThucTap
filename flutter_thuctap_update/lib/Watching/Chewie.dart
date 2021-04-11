@@ -19,7 +19,7 @@ class _PlayChewieState extends State<PlayChewie> {
 
   Future<void> initializePlayer() async {
     widget._videoPlayerController1 = VideoPlayerController.network(
-        "https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4");
+        "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4");
 
     await Future.wait([
       widget._videoPlayerController1.initialize(),
@@ -56,6 +56,7 @@ class _PlayChewieState extends State<PlayChewie> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.black,
       child: widget._chewieController != null &&
           widget._chewieController
                   .videoPlayerController.value.isInitialized
@@ -68,7 +69,7 @@ class _PlayChewieState extends State<PlayChewie> {
                 children: const [
                   CircularProgressIndicator(),
                   SizedBox(height: 20),
-                  Text('Loading'),
+                  Text('Loading',style: TextStyle(color: Colors.white),),
                 ],
               ),
             ),

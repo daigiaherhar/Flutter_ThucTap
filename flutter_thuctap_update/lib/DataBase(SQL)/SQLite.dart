@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/widgets.dart';
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter_thuctap_update/Model/Category.dart';

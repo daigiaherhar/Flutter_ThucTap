@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
             body: TabBarView(
               children: <Widget>[
                 HomePage_TabView_1(),
-                HomePage_Info(),
+                HomeInfo(),
               ],
             ),
           )),

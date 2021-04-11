@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -84,119 +85,131 @@ class _AddMovieState extends State<AddMovie> {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: new AppBar(
+          title: Text("Admin add movide"),
 
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-        Colors.white,
-        Colors.cyanAccent,
-      ])),
-      padding: EdgeInsets.all(5),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            TextFieldCustom(
-                1, 26, "Tên phim", "", TextStyle(color: Colors.black26), false,
-                (value) {
-              setState(() {});
-            }),
-            TextFieldCustom(1, 26, "Thời lượng / phút", "",
-                TextStyle(color: Colors.black26), false, (value) {
-              setState(() {});
-            }),
-            TextFieldCustom(
-                1, 26, "Số tập", "", TextStyle(color: Colors.black26), false,
-                (value) {
-              setState(() {});
-            }),
-            TextFieldCustom(
-                1, 26, "Quốc gia", "", TextStyle(color: Colors.black26), false,
-                (value) {
-              setState(() {});
-            }),
-            TextFieldCustom(
-                1, 26, "Tác giả", "", TextStyle(color: Colors.black26), false,
-                (value) {
-              setState(() {});
-            }),
-            TextFieldCustom(1, 4, "Năm phát hành", "",
-                TextStyle(color: Colors.black26), false, (value) {
-              setState(() {});
-            }),
-            TextFieldCustom(
-                8, 26, "Mô tả", null, TextStyle(color: Colors.black26), false,
-                (value) {
-              setState(() {});
-            }),
-            Row(
-              children: [
-                Expanded(
-                  child: TextFieldCustom(1, 500, "Link phim/YTB", null,
-                      TextStyle(color: Colors.black26), false, (value) {
-                    setState(() {
-                      linkYTB = value;
-                      if (Uri.parse(linkYTB).isAbsolute) {
-                        isVisible = true;
-                      } else {
-                        isVisible = false;
-                      }
-                    });
+        ),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Colors.white,
+              Colors.cyanAccent,
+            ])),
+        padding: EdgeInsets.all(5),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              TextFieldCustom(
+                  1, 26, "Tên phim", "", TextStyle(color: Colors.black26), false,
+                      (value) {
+                    setState(() {});
                   }),
-                  flex: 5,
-                ),
-                Visibility(
-                  visible: isVisible,
-                  child: Expanded(
-                    child: ButtonIcon(
-                      text: Text(""),
-                      icon: Icon(Icons.search),
-                      onPressed: () async {
-                        if (await canLaunch(linkYTB)) {
-                          await launch(linkYTB);
-                        } else {
-                          throw 'Can not open link URL';
-                        }
-                      },
-                    ),
-                    flex: 1,
+              TextFieldCustom(1, 26, "Thời lượng / phút", "",
+                  TextStyle(color: Colors.black26), false, (value) {
+                    setState(() {});
+                  }),
+              TextFieldCustom(
+                  1, 26, "Số tập", "", TextStyle(color: Colors.black26), false,
+                      (value) {
+                    setState(() {});
+                  }),
+              TextFieldCustom(
+                  1, 26, "Quốc gia", "", TextStyle(color: Colors.black26), false,
+                      (value) {
+                    setState(() {});
+                  }),
+              TextFieldCustom(
+                  1, 26, "Tác giả", "", TextStyle(color: Colors.black26), false,
+                      (value) {
+                    setState(() {});
+                  }),
+              TextFieldCustom(1, 4, "Năm phát hành", "",
+                  TextStyle(color: Colors.black26), false, (value) {
+                    setState(() {});
+                  }),
+              TextFieldCustom(
+                  8, 26, "Mô tả", null, TextStyle(color: Colors.black26), false,
+                      (value) {
+                    setState(() {});
+                  }),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextFieldCustom(1, 500, "Link phim/YTB", null,
+                        TextStyle(color: Colors.black26), false, (value) {
+                          setState(() {
+                            linkYTB = value;
+                            if (Uri.parse(linkYTB).isAbsolute) {
+                              isVisible = true;
+                            } else {
+                              isVisible = false;
+                            }
+                          });
+                        }),
+                    flex: 5,
                   ),
-                )
-              ],
-            ),
-            // AutocompleteCustom(),
-            EditFileCategory(),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //   children: [
-            //     // CheckBoxCustom(Text("Thần thoại"), _checkThanThoai, (value) {
-            //     //   setState(() {
-            //     //     _checkThanThoai = value;
-            //     //   });
-            //     // }),
-            //     // CheckBoxCustom(Text("Kiếm hiệp"), _checkKiemHiep, (value) {
-            //     //   setState(() {
-            //     //     _checkKiemHiep = value;
-            //     //   });
-            //     // }),
-            //
-            //
-            //   ],
-            // ),
-            getImage(),
+                  Visibility(
+                    visible: isVisible,
+                    child: Expanded(
+                      child: ButtonIcon(
+                        text: Text(""),
+                        icon: Icon(Icons.search),
+                        onPressed: () async {
+                          if (await canLaunch(linkYTB)) {
+                            await launch(linkYTB);
+                          } else {
+                            throw 'Can not open link URL';
+                          }
+                        },
+                      ),
+                      flex: 1,
+                    ),
+                  )
+                ],
+              ),
+              // AutocompleteCustom(),
+              EditFileCategory(),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //   children: [
+              //     // CheckBoxCustom(Text("Thần thoại"), _checkThanThoai, (value) {
+              //     //   setState(() {
+              //     //     _checkThanThoai = value;
+              //     //   });
+              //     // }),
+              //     // CheckBoxCustom(Text("Kiếm hiệp"), _checkKiemHiep, (value) {
+              //     //   setState(() {
+              //     //     _checkKiemHiep = value;
+              //     //   });
+              //     // }),
+              //
+              //
+              //   ],
+              // ),
+              getImage(),
 
-            ButtonIcon(
-              onPressed: () {
-                final snackBar = SnackBar(content: Text(_selectIMG.toString()));
+              ButtonIcon(
+                onPressed: ()=> _submit(),
+                icon: Icon(Icons.add),
+                text: Text("sss"),
+              ),
 
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-              icon: Icon(Icons.add),
-              text: Text("sss"),
-            ),
-
-          ],
+            ],
+          ),
         ),
       ),
+
     );
   }
+}
+_submit() {
+  DatabaseReference database =
+  FirebaseDatabase.instance.reference().child("subjects");
+  database.push().set({
+    'sID': "_txtUID.text",
+    'sName': "_txtName.text",
+    'iCount': "_txtPhone.text",
+    'iPrice': 'hien tai chua co'
+  });
 }

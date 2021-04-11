@@ -76,16 +76,17 @@ class _HomePage_TabView_1State extends State<HomePage_TabView_1> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final double categoryHead = size.height * 0.30;
-    return Scaffold(
+    return
+      Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          Colors.black45,
-          Colors.white,
-          Colors.cyanAccent,
-          Colors.amberAccent,
-          Colors.lightGreenAccent,
-        ])),
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(colors: [
+        //   Colors.black45,
+        //   Colors.white,
+        //   Colors.cyanAccent,
+        //   Colors.amberAccent,
+        //   Colors.lightGreenAccent,
+        // ])),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
